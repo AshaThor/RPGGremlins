@@ -1,27 +1,31 @@
 package com.ashathor.rpggremlins.controllers;
 
 import com.ashathor.rpggremlins.models.Character;
+import com.ashathor.rpggremlins.repositories.CharacterRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/characters")
 public class CharactersController {
+
+    @Autowired
+    private CharacterRepository characterRepository;
+
     @GetMapping
     public List<Character> list(){
-        List<Character> characters = new ArrayList<>();
-        return characters;
+        return characterRepository.findAll();
     }
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
     public void create(@RequestBody Character character){
-
+        characterRepository.save(character);
     }
     @GetMapping("/{id}")
     public Character get(@PathVariable("id") long id){
-        return new Character();
+        return characterRepository.getOne(id);
     }
 }
