@@ -12,6 +12,8 @@ import javax.persistence.*;
 //@Table(name = "character")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Character {
+    /*Entity class for an RPG Character
+    * */
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -21,4 +23,5 @@ public class Character {
     private String race;
     private int level;
     private String player;
+
 }

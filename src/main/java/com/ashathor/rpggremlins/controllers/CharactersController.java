@@ -19,11 +19,13 @@ public class CharactersController {
     public List<Character> list(){
         return characterRepository.findAll();
     }
+
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
     public void create(@RequestBody Character character){
         characterRepository.save(character);
     }
+
     @GetMapping("/{id}")
     public Character get(@PathVariable("id") long id){
         return characterRepository.getOne(id);
