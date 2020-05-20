@@ -67,7 +67,6 @@ CREATE TABLE class
     hit_dice               int,
     character_skills_limit int,
     lore                   text,
-    speed                  int,
     PRIMARY KEY (id)
 );
 
@@ -98,6 +97,7 @@ CREATE TABLE race
     name           varchar,
     lore           text,
     parent_race_id serial,
+    speed          int,
     constraint race_lore_cannot_be_assigned_to_subraces
         check (lore is null or parent_race_id is null),
     PRIMARY KEY (id)

@@ -1,8 +1,3 @@
-ALTER TABLE rpggremlins.race
-    ADD COLUMN speed integer;
-
-ALTER TABLE rpggremlins.class DROP COLUMN speed;
-
 CREATE SEQUENCE rpggremlins.character_id_seq
     INCREMENT 1
     START 1
