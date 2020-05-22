@@ -56,7 +56,7 @@ CREATE TABLE character
 CREATE TABLE alignment
 (
     id         serial,
-    aliginment varchar,
+    alignment varchar,
     PRIMARY KEY (id)
 );
 

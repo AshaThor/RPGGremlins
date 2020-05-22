@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/rpgclass")
+@RequestMapping("/api/v1/rpgclasses")
 public class RpgClassController {
 
     @Autowired
@@ -29,5 +29,10 @@ public class RpgClassController {
     @GetMapping("/{id}")
     public RpgClass get(@PathVariable("id") long id){
         return rpgClassRepository.getOne(id);
+    }
+
+    //try to get param name working
+    public RpgClass getClass(@RequestParam(value="name") String name) {
+        return rpgClassRepository.findByName(name);
     }
 }

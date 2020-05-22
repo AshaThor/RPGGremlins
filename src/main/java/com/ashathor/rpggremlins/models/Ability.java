@@ -9,13 +9,15 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "user", schema = "rpggremlins")
+@Table(name = "ability", schema = "rpggremlins")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class User {
+public class Ability {
 
     @Id
-    @Column(name="username")
-    private String username;
-    private String passHash;
-    private String email;
+    @Column(name="id", unique=true, nullable=false)
+    private Long id;
+    @Column(name = "index")
+    private String index;
+    private String name;
+
 }
