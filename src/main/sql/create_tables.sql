@@ -10,7 +10,6 @@ CREATE TABLE skill
 (
     id         serial,
     ability_id serial,
-    index      varchar,
     name       varchar,
     PRIMARY KEY (id)
 );
@@ -98,8 +97,6 @@ CREATE TABLE race
     lore           text,
     parent_race_id serial,
     speed          int,
-    constraint race_lore_cannot_be_assigned_to_subraces
-        check (lore is null or parent_race_id is null),
     PRIMARY KEY (id)
 );
 
