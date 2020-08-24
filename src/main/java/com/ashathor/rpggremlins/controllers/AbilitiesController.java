@@ -15,12 +15,17 @@ public class AbilitiesController {
     private AbilityRepository abilityRepository;
 
     @GetMapping
-    public List<Ability> list(){
+    public List<Ability> listAll(){
         return abilityRepository.findAll();
     }
 
-    @GetMapping("/{index}")
-    public Ability get(@PathVariable("index") String index){
+    @GetMapping("/{id}")
+    public Ability getById(@PathVariable("id") Long id){
+        return abilityRepository.findById(id);
+    }
+
+    @GetMapping("/index/{index}")
+    public Ability getByIndex(@PathVariable("index") String index){
         return abilityRepository.findByIndex(index);
     }
 }

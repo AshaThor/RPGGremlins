@@ -1,4 +1,4 @@
-package com.ashathor.rpggremlins.controllers;
+package com.ashathor.rpggremlins.controllers.alignments;
 
 import com.ashathor.rpggremlins.models.Alignment;
 import com.ashathor.rpggremlins.repositories.AlignmentRepository;
@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -18,13 +17,16 @@ public class AlignmentsController {
     @Autowired
     private AlignmentRepository alignmentRepository;
 
+    @Autowired
+    private AlignmentSubList alignmentSubList;
+
     @GetMapping
-    public List<Alignment> list(){
+    public List<Alignment> listAll(){
         return alignmentRepository.findAll();
     }
 
     @GetMapping("/{id}")
-    public Alignment get(@PathVariable("id") Long id){
+    public Alignment getById(@PathVariable("id") Long id){
         return alignmentRepository.getOne(id);
     }
 
@@ -36,14 +38,7 @@ public class AlignmentsController {
      * @return List<Alignment>
      * */
     @GetMapping("/keyword/{keyword}")
-    public List<Alignment> get(@PathVariable("keyword") String keyWord){
-        List<Alignment> alignments = alignmentRepository.findAll();
-        List<Alignment> keyWordAlignments = new ArrayList<>();
-        for (Alignment alignment : alignments){
-            if (alignment.getAlignment().toLowerCase().contains(keyWord.toLowerCase())){
-                keyWordAlignments.add(alignment);
-            }
-        }
-        return keyWordAlignments;
+    public List<Alignment> getAlignmentSubListByKeyword(@PathVariable("keyword") String keyWord){
+        return alignmentSubList.getAlignmentSubListByKeyword(keyWord);
     }
 }
