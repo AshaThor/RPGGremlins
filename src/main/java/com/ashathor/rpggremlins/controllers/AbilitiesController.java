@@ -21,11 +21,11 @@ public class AbilitiesController {
 
     @GetMapping("/{id}")
     public Ability getById(@PathVariable("id") Long id){
-        return abilityRepository.findById(id);
+        return abilityRepository.getOne(id);
     }
 
-    @GetMapping("/index/{index}")
-    public Ability getByIndex(@PathVariable("index") String index){
-        return abilityRepository.findByIndex(index);
-    }
+    //@GetMapping("/index/{index}")
+    //public Ability getByIndex(@PathVariable("index") String index){
+        //return abilityRepository.findByIndex(index);
+    //}
 }

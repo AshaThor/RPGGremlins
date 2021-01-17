@@ -1,4 +1,4 @@
-package com.ashathor.rpggremlins.controllers.alignments;
+package com.ashathor.rpggremlins.controllers.alignment;
 
 import com.ashathor.rpggremlins.models.Alignment;
 import com.ashathor.rpggremlins.repositories.AlignmentRepository;
@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/alignments")
-public class AlignmentsController {
+@RequestMapping("/api/v1/alignment")
+public class AlignmentController {
 
     @Autowired
     private AlignmentRepository alignmentRepository;

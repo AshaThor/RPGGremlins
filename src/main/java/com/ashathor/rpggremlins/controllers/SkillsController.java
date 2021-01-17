@@ -39,8 +39,8 @@ public class SkillsController {
      * @param index
      * @return List<Skill>
      * */
-    @GetMapping("/ability/{index}")
+    /*@GetMapping("/ability/{index}")
     public List<Skill> get(@PathVariable("index") String index){
         return skillRepository.findAllByAbilityId(abilityRepository.findByIndex(index).getId());
-    }
+    }*/
 }

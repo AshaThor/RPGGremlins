@@ -1,4 +1,4 @@
-package com.ashathor.rpggremlins.controllers.alignments;
+package com.ashathor.rpggremlins.controllers.alignment;
 
 import com.ashathor.rpggremlins.models.Alignment;
 import com.ashathor.rpggremlins.repositories.AlignmentRepository;
@@ -16,12 +16,12 @@ public class AlignmentSubList {
 
     public List<Alignment> getAlignmentSubListByKeyword(String keyWord){
         List<Alignment> listOfAlignments = alignmentRepository.findAll();
-        List<Alignment> keyWordAlignments = new ArrayList<>();
+        List<Alignment> matchedAlignments = new ArrayList<>();
         for (Alignment alignment : listOfAlignments){
             if (alignment.getAlignment().toLowerCase().contains(keyWord.toLowerCase())){
-                keyWordAlignments.add(alignment);
+                matchedAlignments.add(alignment);
             }
         }
-        return keyWordAlignments;
+        return matchedAlignments;
     }
 }
