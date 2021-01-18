@@ -2,6 +2,9 @@
     height: 20%;
     width: 20%;
 }
+/*.container .card-deck {
+    display: flex;
+}*/
 .dropdown:hover>.dropdown-menu {
     display: block;
 }
@@ -10,8 +13,11 @@
     /*Without this, clicking will make it sticky*/
 // pointer-events: none;
 }
-.card-columns {
 
+.card-columns {
+    column-count: 3;
+    column-gap: 1.25rem;
+}
 @include media-breakpoint-only(lg) {
     column-count: 4;
 }

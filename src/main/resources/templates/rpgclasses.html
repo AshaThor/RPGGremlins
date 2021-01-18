@@ -11,9 +11,9 @@
 <main class="flex-fill" role="main">
     <div class="container">
         <div class="card-deck">
-            <div class="card-columns">
-                <div class="card" th:each="rpgclass : ${rpgClassesList}">
-                    <img class="card-img-top"
+            <div class="card-columns" >
+                <div class="card text-white bg-dark mb-3" th:each="rpgclass : ${rpgClassesList}">
+                    <img class="card-img-top mx-auto d-block"
                          th:attr="src=@{|/images/classsymbols/Dnd5E_ClassSymb_${rpgclass.getName()}.jpg|},alt=${rpgclass.getName()}"/>
                     <div class="card-body">
                         <h5 class="card-title" th:text="${rpgclass.getName()}"></h5>
@@ -23,22 +23,6 @@
                 </div>
             </div>
         </div>
-        <!--<div class="col-md-2 py-2 box-shadow" th:each="rpgclass : ${rpgClassesList}">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="https://media-waterdeep.cursecdn.com/avatars/thumbnails/4808/187/340/340/636771210176732976.png" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title"th:text="${rpgclass.getName()}"></h5>
-                    <p class="card-text" th:text="${rpgclass.getLore()}"></p>
-                    <a href="#" class="btn btn-primary">Go to Class</a>
-                </div>
-            </div>-->
-        <!--<a class="post-url" th:href="@{'/post/' + ${rpg-class.getName()}}"><img class="card-img-top" th:src="'https://picsum.photos/id/'+${rpg-class.getName()}+'/500/350'" alt="Post Title Image"></a>
-        --><!--<div class="card-body">
-                    <div class="card-title" th:text="${rpgclass.getName()}"></div>
-                <p class="card-text" th:text="${rpgclass.getLore()}"></p>
-                </div>-->
-    </div>
-    </div>
     </div>
 </main>
 </body>

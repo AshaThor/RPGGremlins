@@ -8,7 +8,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/rpgclasses")
@@ -27,7 +30,8 @@ public class RpgClassController {
     @GetMapping
     public String listClasses(ModelMap modelMap) {
         List<RpgClass> rpgClassesList = rpgClassRepository.findAll();
-        modelMap.put("rpgClassesList", rpgClassesList);
+        List<RpgClass> rpgClassesListSorted = rpgClassesList.stream().sorted(Comparator.comparing(RpgClass::getName)).collect(Collectors.toList());
+        modelMap.put("rpgClassesList", rpgClassesListSorted);
         return "rpgclasses";
     }
 
