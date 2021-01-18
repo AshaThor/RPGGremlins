@@ -11,13 +11,12 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @Controller
-
+@RequestMapping("/rpgclasses")
 public class RpgClassController {
 
     @Autowired
     private RpgClassRepository rpgClassRepository;
 
-    @GetMapping
     public List<RpgClass> list(){
         return rpgClassRepository.findAll();
     }
@@ -25,8 +24,7 @@ public class RpgClassController {
     public RpgClassController(RpgClassRepository rpgClassRepository){
         this.rpgClassRepository = rpgClassRepository;
     }
-    //@GetMapping
-    @RequestMapping("/rpgclasses")
+    @GetMapping
     public String listClasses(ModelMap modelMap) {
         List<RpgClass> rpgClassesList = rpgClassRepository.findAll();
         modelMap.put("rpgClassesList", rpgClassesList);
@@ -40,8 +38,10 @@ public class RpgClassController {
     }
 
     @GetMapping("/{id}")
-    public RpgClass get(@PathVariable("id") long id){
-        return rpgClassRepository.getOne(id);
+    public String get(@PathVariable("id") long id, ModelMap modelMap){
+        RpgClass rpgClass = rpgClassRepository.getOne(id);
+        modelMap.put("rpgClass", rpgClass);
+        return "rpgclass";
     }
 
     //try to get param name working

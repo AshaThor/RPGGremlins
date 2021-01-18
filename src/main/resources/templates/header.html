@@ -1,38 +1,81 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <head>
     <meta charset="UTF-8">
     <title>RPG Gremlins</title>
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-lg navbar-inverse ">
-        <a class="navbar-brand" href="/">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">
+            <img alt="GremlinLogo" height="20" th:src="@{/images/gremlin.jpg}">
+        </a>
+        <button aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation"
+                class="navbar-toggler"
+                data-target="#navbarNavDropdown" data-toggle="collapse" type="button">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/home">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <!-- Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/rpgclasses" id="navbardrop">
+                        Classes
+                    </a>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" href="#">Artificer</a>
+                        <a class="dropdown-item" href="/rpgclasses/1">Barbarian</a>
+                        <a class="dropdown-item" href="/rpgclasses/2">Bard</a>
+                        <a class="dropdown-item" href="/rpgclasses/3">Cleric</a>
+                        <a class="dropdown-item" href="/rpgclasses/4">Druid</a>
+                        <a class="dropdown-item" href="/rpgclasses/5">Fighter</a>
+                        <a class="dropdown-item" href="/rpgclasses/6">Monk</a>
+                        <a class="dropdown-item" href="/rpgclasses/7">Paladin</a>
+                        <a class="dropdown-item" href="/rpgclasses/8">Ranger</a>
+                        <a class="dropdown-item" href="/rpgclasses/9">Rouge</a>
+                        <a class="dropdown-item" href="/rpgclasses/10">Sorcerer</a>
+                        <a class="dropdown-item" href="/rpgclasses/11">Warlock</a>
+                        <a class="dropdown-item" href="/rpgclasses/12">Wizard</a>
+
+
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+
+            </ul>
+        </div>
+    </nav>
+    <!--
+        <a class="nav-item" href="/">
             <img alt="GremlinLogo" th:src="@{/images/gremlin.jpg}" height="20">
         </a>
-        <ul class="nav navbar-nav">
-            <li><a href="/home">Home</a></li>
-            <li class="dropdown"><a class="dropdown-toggle"  href="/rpgclasses">Classes <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li class="list-item">Artificer</li>
-                    <li class="list-item">Barbarian</li>
-                    <li class="list-item">Bard</li>
-                    <li class="list-item">Cleric</li>
-                    <li class="list-item">Druid</li>
-                    <li class="list-item">Fighter</li>
-                    <li class="list-item">Monk</li>
-                    <li class="list-item">Paladin</li>
-                    <li class="list-item">Ranger</li>
-                    <li class="list-item">Rouge</li>
-                    <li class="list-item">Sorcerer</li>
-                    <li class="list-item">Warlock</li>
-                    <li class="list-item">Wizard</li>
-                </ul>
-            </li>
-            <li><a href="#">Races</a></li>
-            <li><a href="#">Skills</a></li>
-        </ul>
-    </nav>
+        <nav class="nav">
+            <ul class="justify-content-center">
+                <li class="nav-item"><a href="/home">Home</a></li>
+                <li class="nav-item dropdown"><a class="dropdown-toggle" href="/rpgclasses">Classes <span
+                        class="caret"></span></a>
+                    <ul class="dropdown-menu">
+
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="#">Races</a></li>
+                <li class="nav-item"><a href="#">Skills</a></li>
+            </ul>
+        </nav>-->
 </header>
 </body>
+
 </html>

@@ -31,3 +31,4 @@ build/
 .vscode/
 /src/main/resources/css/
 /src/main/resources/js/
+/src/main/resources/static/images/classsymbols/
