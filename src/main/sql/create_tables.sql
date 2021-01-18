@@ -1,4 +1,6 @@
-CREATE TABLE ability
+CREATE SCHEMA rpggremlins
+
+CREATE TABLE rpggremlins.ability
 (
     id    serial,
     index varchar,
@@ -6,7 +8,7 @@ CREATE TABLE ability
     PRIMARY KEY (id)
 );
 
-CREATE TABLE skill
+CREATE TABLE rpggremlins.skill
 (
     id         serial,
     ability_id serial,
@@ -14,7 +16,7 @@ CREATE TABLE skill
     PRIMARY KEY (id)
 );
 
-CREATE TABLE character_skills
+CREATE TABLE rpggremlins.character_skills
 (
     character_id uuid,
     skill_id     serial,
@@ -22,7 +24,7 @@ CREATE TABLE character_skills
     PRIMARY KEY (character_id, skill_id)
 );
 
-CREATE TABLE saving_throw
+CREATE TABLE rpggremlins.saving_throw
 (
     character_id uuid,
     ability_id   serial,
@@ -30,7 +32,7 @@ CREATE TABLE saving_throw
     PRIMARY KEY (character_id, ability_id)
 );
 
-CREATE TABLE character_abilities
+CREATE TABLE rpggremlins.character_abilities
 (
     character_id uuid,
     ability_id   serial,
@@ -39,7 +41,7 @@ CREATE TABLE character_abilities
     PRIMARY KEY (character_id, ability_id)
 );
 
-CREATE TABLE character
+CREATE TABLE rpggremlins.character
 (
     id           uuid,
     username     varchar,
@@ -52,14 +54,14 @@ CREATE TABLE character
     PRIMARY KEY (id)
 );
 
-CREATE TABLE alignment
+CREATE TABLE rpggremlins.alignment
 (
     id         serial,
     alignment varchar,
     PRIMARY KEY (id)
 );
 
-CREATE TABLE class
+CREATE TABLE rpggremlins.class
 (
     id                     serial,
     name                   varchar,
@@ -69,7 +71,7 @@ CREATE TABLE class
     PRIMARY KEY (id)
 );
 
-CREATE TABLE users
+CREATE TABLE rpggremlins.users
 (
     username  varchar,
     pass_hash varchar,
@@ -77,20 +79,20 @@ CREATE TABLE users
     PRIMARY KEY (username)
 );
 
-CREATE TABLE character_campaigns
+CREATE TABLE rpggremlins.character_campaigns
 (
     character_id  uuid,
     campaign_name varchar,
     PRIMARY KEY (character_id, campaign_name)
 );
 
-CREATE TABLE campaign
+CREATE TABLE rpggremlins.campaign
 (
     name varchar,
     PRIMARY KEY (name)
 );
 
-CREATE TABLE race
+CREATE TABLE rpggremlins.race
 (
     id             serial,
     name           varchar,
@@ -100,7 +102,7 @@ CREATE TABLE race
     PRIMARY KEY (id)
 );
 
-CREATE TABLE race_abilities
+CREATE TABLE rpggremlins.race_abilities
 (
     race_id    serial,
     ability_id serial,
@@ -108,7 +110,7 @@ CREATE TABLE race_abilities
     PRIMARY KEY (race_id, ability_id)
 );
 
-CREATE TABLE class_skills
+CREATE TABLE rpggremlins.class_skills
 (
     skill_id serial,
     class_id serial,
@@ -116,54 +118,54 @@ CREATE TABLE class_skills
 );
 
 
-ALTER TABLE saving_throw
+ALTER TABLE rpggremlins.saving_throw
     ADD FOREIGN KEY (character_id) REFERENCES character (id);
 
-ALTER TABLE character_abilities
+ALTER TABLE rpggremlins.character_abilities
     ADD FOREIGN KEY (character_id) REFERENCES character (id);
 
-ALTER TABLE character_skills
+ALTER TABLE rpggremlins.character_skills
     ADD FOREIGN KEY (character_id) REFERENCES character (id);
 
-ALTER TABLE character_campaigns
+ALTER TABLE rpggremlins.character_campaigns
     ADD FOREIGN KEY (character_id) REFERENCES character (id);
 
-ALTER TABLE character
+ALTER TABLE rpggremlins.character
     ADD FOREIGN KEY (username) REFERENCES users (username);
 
-ALTER TABLE character_campaigns
+ALTER TABLE rpggremlins.character_campaigns
     ADD FOREIGN KEY (campaign_name) REFERENCES campaign (name);
 
-ALTER TABLE saving_throw
+ALTER TABLE rpggremlins.saving_throw
     ADD FOREIGN KEY (ability_id) REFERENCES ability (id);
 
-ALTER TABLE character_abilities
+ALTER TABLE rpggremlins.character_abilities
     ADD FOREIGN KEY (ability_id) REFERENCES ability (id);
 
-ALTER TABLE skill
+ALTER TABLE rpggremlins.skill
     ADD FOREIGN KEY (ability_id) REFERENCES ability (id);
 
-ALTER TABLE character_skills
+ALTER TABLE rpggremlins.character_skills
     ADD FOREIGN KEY (skill_id) REFERENCES skill (id);
 
-ALTER TABLE character
+ALTER TABLE rpggremlins.character
     ADD FOREIGN KEY (class_id) REFERENCES class (id);
 
-ALTER TABLE class_skills
+ALTER TABLE rpggremlins.class_skills
     ADD FOREIGN KEY (class_id) REFERENCES class (id);
 
-ALTER TABLE class_skills
+ALTER TABLE rpggremlins.class_skills
     ADD FOREIGN KEY (skill_id) REFERENCES skill (id);
 
-ALTER TABLE character
+ALTER TABLE rpggremlins.character
     ADD FOREIGN KEY (race_id) REFERENCES race (id);
 
-ALTER TABLE race_abilities
+ALTER TABLE rpggremlins.race_abilities
     ADD FOREIGN KEY (ability_id) REFERENCES ability (id);
 
-ALTER TABLE race_abilities
+ALTER TABLE rpggremlins.race_abilities
     ADD FOREIGN KEY (race_id) REFERENCES race (id);
 
-ALTER TABLE character
+ALTER TABLE rpggremlins.character
     ADD FOREIGN KEY (alignment_id) REFERENCES alignment (id);
 
