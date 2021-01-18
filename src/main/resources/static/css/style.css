@@ -1,3 +1,4 @@
+/*
 
 .form-control[readonly] {
     background-color: white;
@@ -45,7 +46,7 @@ footer p {
 .box-shadow { box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); }
 
 .card-title {
-    /*height: 24px;*/
+    !*height: 24px;*!
     text-align: center;
     font: 24px/34px Gotham;
     letter-spacing: 0;
@@ -55,7 +56,7 @@ footer p {
 }
 
 .card-text {
-    /*height: 76px;*/
+    !*height: 76px;*!
     text-align: center;
     font: 16px/22px Gotham;
     letter-spacing: 0;
@@ -63,7 +64,7 @@ footer p {
     opacity: 1;
 }
 .card-subtext {
-    /*height: 12px;*/
+    !*height: 12px;*!
     text-align: center;
 }
 
@@ -74,44 +75,44 @@ footer p {
     color: #B5B5B5;
     opacity: 1;
 }
-/*################### NavBar ##################*/
+
 .navbar {
-    background-color: #44d615;
+    background-color: #5e8e96;
     padding-top: 20px;
     padding-bottom: 20px;
 }
-.navbar .navbar-gremlin {
+.navbar .navbar-brand {
     color: #ecf0f1;
 }
-.navbar .navbar-gremlin:hover,
-.navbar .navbar-gremlin:focus {
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus {
     color: #ecf0f1;
 }
 .navbar .navbar-text {
-    color: #000000;
+    color: #ecf0f1;
 }
 .navbar .navbar-text a {
-    color: #000000;
+    color: #ecf0f1;
 }
 .nav-item a {
-    color: #000000;
+    color: #ecf0f1;
 }
 
 .nav-item a:hover,
 .nav-item a:focus{
-    color: #727272;
+    color: #bbbbbb;
     text-decoration: none;
 }
 
 
 .navbar .navbar-text a:hover,
 .navbar .navbar-text a:focus {
-    color: #727272;
+    color: #ecf0f1;
 }
 
 .navbar .navbar-nav .nav-link:not(.disabled):hover,
 .navbar .navbar-nav .nav-link:not(.disabled):focus {
-    color: #727272;
+    color: #ecf0f1;
 }
 
 .navbar-nav{
@@ -131,7 +132,7 @@ footer p {
     text-transform: uppercase;
 }
 
-.navbar-gremlin {
+.navbar-brand {
     padding-left: 50px;
     font: Bold 29px/41px Gotham;
     letter-spacing: 0;
@@ -187,3 +188,4 @@ footer p {
 
 
 
+*/

@@ -4,12 +4,14 @@ import com.ashathor.rpggremlins.models.RpgClass;
 import com.ashathor.rpggremlins.repositories.RpgClassRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
-@RequestMapping("/api/v1/rpgclasses")
+@Controller
+
 public class RpgClassController {
 
     @Autowired
@@ -18,6 +20,17 @@ public class RpgClassController {
     @GetMapping
     public List<RpgClass> list(){
         return rpgClassRepository.findAll();
+    }
+
+    public RpgClassController(RpgClassRepository rpgClassRepository){
+        this.rpgClassRepository = rpgClassRepository;
+    }
+    //@GetMapping
+    @RequestMapping("/rpgclasses")
+    public String listClasses(ModelMap modelMap) {
+        List<RpgClass> rpgClassesList = rpgClassRepository.findAll();
+        modelMap.put("rpgClassesList", rpgClassesList);
+        return "rpgclasses";
     }
 
     @PostMapping
