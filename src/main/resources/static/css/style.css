@@ -1,6 +1,10 @@
+$enable-shadows
 .card .card-img-top{
     height: 20%;
     width: 20%;
+}
+.main{
+    margin-top: 80px;
 }
 /*.container .card-deck {
     display: flex;

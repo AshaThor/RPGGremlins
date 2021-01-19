@@ -5,10 +5,10 @@ import com.ashathor.rpggremlins.repositories.RpgClassRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -20,36 +20,46 @@ public class RpgClassController {
     @Autowired
     private RpgClassRepository rpgClassRepository;
 
-    public List<RpgClass> list(){
+    public List<RpgClass> list() {
         return rpgClassRepository.findAll();
     }
 
-    public RpgClassController(RpgClassRepository rpgClassRepository){
+    public RpgClassController(RpgClassRepository rpgClassRepository) {
         this.rpgClassRepository = rpgClassRepository;
     }
+
     @GetMapping
     public String listClasses(ModelMap modelMap) {
         List<RpgClass> rpgClassesList = rpgClassRepository.findAll();
         List<RpgClass> rpgClassesListSorted = rpgClassesList.stream().sorted(Comparator.comparing(RpgClass::getName)).collect(Collectors.toList());
         modelMap.put("rpgClassesList", rpgClassesListSorted);
-        return "rpgclasses";
+        return "rpgclass/rpgclasses";
     }
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.OK)
-    public void create(@RequestBody RpgClass rpgClass){
-        rpgClassRepository.save(rpgClass);
-    }
 
     @GetMapping("/{id}")
-    public String get(@PathVariable("id") long id, ModelMap modelMap){
+    public String get(@PathVariable("id") long id, ModelMap modelMap) {
         RpgClass rpgClass = rpgClassRepository.getOne(id);
         modelMap.put("rpgClass", rpgClass);
-        return "rpgclass";
+        return "rpgclass/rpgclass";
     }
 
     //try to get param name working
-    public RpgClass getClass(@RequestParam(value="name") String name) {
+    public RpgClass getClass(@RequestParam(value = "name") String name) {
         return rpgClassRepository.findByName(name);
+    }
+
+    @GetMapping("/new")
+    public String rpgClassForm(Model model) {
+        model.addAttribute("rpgClass", new RpgClass());
+        return "rpgclass/newrpgclass";
+    }
+
+    @PostMapping("/new")
+    @ResponseStatus(HttpStatus.OK)
+    public String create(@ModelAttribute RpgClass rpgClass, Model model) {
+        model.addAttribute("rpgClass", rpgClass);
+        rpgClassRepository.save(rpgClass);
+        return "rpgclass/newsuccess";
     }
 }

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Custom Login Page</title>
+</head>
+<body>
+<main role="main" class="py-5 flex-fill">
+    <div th:replace="header ::header"></div>
+    <h2>Custom Login Page</h2>
+    <form method="post" th:action="@{/login}">
+        <label for="username">Username</label>: <input autofocus="autofocus"
+                                                       id="username" name="username" type="text"/> <label
+            for="password">Password</label>: <input id="password" name="password"
+                                                    type="password"/><input type="submit" value="Log in"/>
+    </form>
+
+</main>
+</body>
+
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" rel="stylesheet">
+<script crossorigin="anonymous"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</html>
