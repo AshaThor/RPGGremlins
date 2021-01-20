@@ -1,33 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
-<!--    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>-->
-    <!--<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">-->
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body xmlns:th="http://www.thymeleaf.org">
+<body>
 <div th:replace="header ::header"></div>
 <main role="main" class="py-5 flex-fill">
     <h1 th:text="${rpgClass.getName()}"></h1>
-    <!--<div class="container">
-        <div class="row">
-            <div class="col-sm-4 py-2 box-shadow" th:each="entry : ${posts}">
-                <a class="post-url" th:href="@{'/post/' + ${entry.getId()}}"><img class="card-img-top" th:src="'https://picsum.photos/id/'+${entry.getId()}+'/500/350'" alt="Post Title Image"></a>
-                <div class="card-body">
-                    <div class="card-title" th:text="${entry.getTitle()}"></div>
-                    <p class="card-text" th:text="${entry.getLead()}"></p>
-                    <div class="card-subtext"><a href="/#" th:text="${entry.getAuthor()}"></a></div>
-                </div>
-            </div>
-        </div>
-    </div>-->
+    <h5 th:text="|Hit dice: ${rpgClass.getHitDice()}|"></h5>
+    <p  th:text="${rpgClass.getLore()}" > </p>
 </main>
 </body>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 <link rel="stylesheet" th:href="@{/css/style.css}">
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
-        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
-        crossorigin="anonymous"></script></html>
+</html>
