@@ -14,7 +14,7 @@ public class AlignmentSubList {
     @Autowired
     private AlignmentRepository alignmentRepository;
 
-    public List<Alignment> getAlignmentSubListByKeyword(String keyWord){
+    /*public List<Alignment> getAlignmentSubListByKeyword(String keyWord){
         List<Alignment> listOfAlignments = alignmentRepository.findAll();
         List<Alignment> matchedAlignments = new ArrayList<>();
         for (Alignment alignment : listOfAlignments){
@@ -23,5 +23,5 @@ public class AlignmentSubList {
             }
         }
         return matchedAlignments;
-    }
+    }*/
 }

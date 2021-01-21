@@ -19,5 +19,6 @@ public class Alignment {
     @Id
     @Column(name="id", unique=true, nullable=false)
     private Long id;
-    private String alignment;
+    @Column(name="alignment")
+    private String value;
 }

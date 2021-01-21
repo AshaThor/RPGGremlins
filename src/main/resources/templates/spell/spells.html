@@ -1,21 +1,21 @@
 <!DOCTYPE HTML>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>RpgClasses</title>
+    <title>Spells</title>
 </head>
-<body class="PHB">
+<body class="spells">
 <div th:replace="header ::header"></div>
 <main class="flex-fill" role="main" >
     <div class="container">
         <div class="row row-cols-3 row-cols-md-3 g-4">
-            <div class="col" th:each="rpgclass : ${rpgClassesList}">
+            <div class="col" th:each="spell : ${spellsList}">
                 <div class="card text-white bg-dark mb-3 h-100"  >
-                    <img class="card-img-top mx-auto d-block"
-                         th:attr="src=@{|/images/classsymbols/Dnd5E_ClassSymb_${rpgclass.getName()}.jpg|},alt=${rpgclass.getName()}"/>
+                    <!--<img class="card-img-top mx-auto d-block"
+                         th:attr="src=@{|/images/classsymbols/Dnd5E_ClassSymb_${spell.getName()}.jpg|},alt=${spell.getName()}"/>-->
                     <div class="card-body">
-                        <h5 class="card-title" th:text="${rpgclass.getName()}"></h5>
-                        <p class="card-text" th:text="${rpgclass.getLore()}"></p>
-                        <a th:href="@{|/rpgclasses/${rpgclass.getId()}|} " class="btn btn-primary" th:text="@{|Go to ${rpgclass.getName()}|}"></a>
+                        <h5 class="card-title" th:text="${spell.getName()}"></h5>
+                        <p class="card-text" th:text="${spell.getIndex()}"></p>
+                        <a th:href="@{|/spells/${spell.getId()}|} " class="btn btn-primary" th:text="@{|Go to ${spell.getName()}|}"></a>
                     </div>
                 </div>
             </div>

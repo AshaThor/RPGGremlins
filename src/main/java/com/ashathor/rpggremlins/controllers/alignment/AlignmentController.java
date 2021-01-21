@@ -37,8 +37,8 @@ public class AlignmentController {
      * @param keyWord
      * @return List<Alignment>
      * */
-    @GetMapping("/keyword/{keyword}")
+    /*@GetMapping("/keyword/{keyword}")
     public List<Alignment> getAlignmentSubListByKeyword(@PathVariable("keyword") String keyWord){
         return alignmentSubList.getAlignmentSubListByKeyword(keyWord);
-    }
+    }*/
 }

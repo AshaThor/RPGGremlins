@@ -2,14 +2,14 @@
 <html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title th:text="${rpgClass.getName()}"></title>
+    <title th:text="${race.getName()}"></title>
 </head>
 <body>
 <div th:replace="header ::header"></div>
 <main role="main" class="py-5 flex-fill">
-    <h1 th:text="${rpgClass.getName()}"></h1>
-    <h5 th:text="|Hit dice: ${rpgClass.getHitDice()}|"></h5>
-    <p  th:text="${rpgClass.getLore()}" > </p>
+    <h1 th:text="${race.getName()}"></h1>
+    <!--<h5 th:text="|Hit dice: ${race.getHitDice()}|"></h5>-->
+    <p  th:text="${race.getLore()}" > </p>
 </main>
 </body>
 <meta name="viewport" content="width=device-width, initial-scale=1">

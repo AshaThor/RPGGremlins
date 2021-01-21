@@ -35,11 +35,11 @@ public class RpgGremlinsSecurityConfiguration extends WebSecurityConfigurerAdapt
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
                 .withUser("user")
-                .password(passwordEncoder().encode("password"))
+                .password(passwordEncoder().encode("ThisIsASecurePassword2021"))
                 .roles("USER")
                 .and()
                 .withUser("admin")
-                .password(passwordEncoder().encode("admin"))
+                .password(passwordEncoder().encode("ThisIsASecurePasswordForAdmin2021"))
                 .roles("ADMIN");
     }
 
