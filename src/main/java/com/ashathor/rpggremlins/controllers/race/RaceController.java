@@ -6,6 +6,7 @@ import com.ashathor.rpggremlins.repositories.RaceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
@@ -54,5 +55,17 @@ public class RaceController {
     public List<Race> getListOfRacesBySpeed(@PathVariable("speed") Long speed) {
         return raceSpeedList.getSpeedList(speed);
     }
+    @GetMapping("/new")
+    public String newRaceForm(Model model) {
+        model.addAttribute("race", new Race());
+        return "race/newrace";
+    }
 
+    @PostMapping("/new")
+    @ResponseStatus(HttpStatus.OK)
+    public String create(@ModelAttribute Race race, Model model) {
+        model.addAttribute("race", race);
+        raceRepository.save(race);
+        return "race/newsuccess";
+    }
     }
