@@ -8,16 +8,21 @@
 <div th:replace="header ::header"></div>
 <main class="flex-fill" role="main">
     <div class="container-md">
-        <form action="#" method="post" th:action="@{/race/new}" th:object="${rpgClass}">
+        <form action="#" method="post" th:action="@{/race/new}" th:object="${race}">
             <div class="form-group">
                 <label for="inputName">Name</label>
-                <input aria-describedby="inputHelp" class="form-control" id="inputName" placeholder="Enter Class Name"
+                <input aria-describedby="inputHelp" class="form-control" id="inputName" placeholder="Enter Race Name"
                        th:field="*{name}" type="text">
-                <small class="form-text text-muted" id="inputHelp">Get creative</small>
             </div>
             <div class="form-group">
-                <label for="inputHitDice">Password</label>
-                <input class="form-control" id="inputHitDice" placeholder="0" th:field="*{hitDice}" type="number">
+                <label for="lore">Lore</label>
+                <textarea class="form-control" aria-label=".form-select-sm example" id="lore" name="loretextarea" rows="4" th:field="*{lore}"
+                          placeholder="Enter your classes lore here" >
+                </textarea>
+            </div>
+            <div class="form-group">
+                <label for="inputSpeed">Speed</label>
+                <input class="form-control" id="inputSpeed" value="30"  type="number" step="5" min="0" th:field="*{speed}">
             </div>
             <button class="btn btn-primary" type="submit">Submit</button>
         </form>

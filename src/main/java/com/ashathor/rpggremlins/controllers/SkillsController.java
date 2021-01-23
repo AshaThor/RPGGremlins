@@ -1,5 +1,6 @@
 package com.ashathor.rpggremlins.controllers;
 
+import com.ashathor.rpggremlins.models.RpgClass;
 import com.ashathor.rpggremlins.models.Skill;
 import com.ashathor.rpggremlins.models.Skill;
 import com.ashathor.rpggremlins.repositories.AbilityRepository;
@@ -31,20 +32,27 @@ public class SkillsController {
         return "skill/skills";
     }
 
-    @GetMapping("/{id}")
+    /*@GetMapping("/{id}")
     public Skill get(@PathVariable("id") Long id){
         return skillRepository.getOne(id);
     }
 
-    /**Find all(List) Skills that use a given ability(index)
+    *//**Find all(List) Skills that use a given ability(index)
      * E.g. /ability/str
      * returns a list of skills that are of the strength ability
      * {Athletics}
      * @param index
      * @return List<Skill>
-     * */
-    /*@GetMapping("/ability/{index}")
+     * *//*
+    *//*@GetMapping("/ability/{index}")
     public List<Skill> get(@PathVariable("index") String index){
         return skillRepository.findAllByAbilityId(abilityRepository.findByIndex(index).getId());
     }*/
+
+    @GetMapping("/{id}")
+    public String getById(@PathVariable("id") long id, ModelMap modelMap) {
+        Skill skill = skillRepository.getOne(id);
+        modelMap.put("skill", skill);
+        return "skill/skill";
+    }
 }

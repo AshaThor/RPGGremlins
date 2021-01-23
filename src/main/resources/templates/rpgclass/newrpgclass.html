@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>New Class</title>
 </head>
 <body>
 <div th:replace="header ::header"></div>
@@ -13,11 +13,38 @@
                 <label for="inputName">Name</label>
                 <input aria-describedby="inputHelp" class="form-control" id="inputName" placeholder="Enter Class Name"
                        th:field="*{name}" type="text">
-                <small class="form-text text-muted" id="inputHelp">Get creative</small>
             </div>
             <div class="form-group">
-                <label for="inputHitDice">Password</label>
-                <input class="form-control" id="inputHitDice" placeholder="0" th:field="*{hitDice}" type="number">
+                <label for="HitDiceSelect">Hit Dice</label>
+                <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="HitDiceSelect" th:field="*{hitDice}">
+                <!--See Trello for more info on expansion-->
+                <!--<option selected>Select Hit Dice</option>-->
+                <option th:value="${2}" value="2">2</option>
+                <option th:value="${4}" value="4">4</option>
+                <option th:value="${6}" value="6">6</option>
+                <option th:value="${8}" value="8">8</option>
+                <option th:value="${10}" value="10">10</option>
+                <option th:value="${12}" value="12">12</option>
+                <option th:value="${14}" value="14">14</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="SkillsLimitSelect">Skills Limit</label>
+                <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="SkillsLimitSelect" th:field="*{characterSkillsLimit}">
+                    <!--See Trello for more info on expansion-->
+                    <!--<option selected>Select Hit Dice</option>-->
+                    <option th:value="${1}" value="1">2</option>
+                    <option th:value="${2}" value="2">4</option>
+                    <option th:value="${3}" value="3">6</option>
+                    <option th:value="${4}" value="4">8</option>
+                    <option th:value="${5}" value="5">10</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="lore">Lore</label>
+                <textarea class="form-control" aria-label=".form-select-sm example" id="lore" name="loretextarea" rows="4" th:field="*{lore}"
+                          placeholder="Enter your classes lore here" >
+                </textarea>
             </div>
             <button class="btn btn-primary" type="submit">Submit</button>
         </form>

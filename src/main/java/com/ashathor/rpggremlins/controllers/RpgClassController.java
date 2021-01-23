@@ -28,6 +28,7 @@ public class RpgClassController {
         this.rpgClassRepository = rpgClassRepository;
     }
 
+    //Root
     @GetMapping
     public String listClasses(ModelMap modelMap) {
         List<RpgClass> rpgClassesList = rpgClassRepository.findAll();
@@ -38,7 +39,7 @@ public class RpgClassController {
 
 
     @GetMapping("/{id}")
-    public String get(@PathVariable("id") long id, ModelMap modelMap) {
+    public String getById(@PathVariable("id") long id, ModelMap modelMap) {
         RpgClass rpgClass = rpgClassRepository.getOne(id);
         modelMap.put("rpgClass", rpgClass);
         return "rpgclass/rpgclass";
@@ -61,5 +62,13 @@ public class RpgClassController {
         model.addAttribute("rpgClass", rpgClass);
         rpgClassRepository.save(rpgClass);
         return "rpgclass/newsuccess";
+    }
+
+    @GetMapping("/admin")
+    public String rpgClassAdmin(ModelMap modelMap) {
+        List<RpgClass> rpgClassesList = rpgClassRepository.findAll();
+        List<RpgClass> rpgClassesListSorted = rpgClassesList.stream().sorted(Comparator.comparing(RpgClass::getName)).collect(Collectors.toList());
+        modelMap.put("rpgClassesList", rpgClassesListSorted);
+        return "rpgclass/admin";
     }
 }

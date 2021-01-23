@@ -14,8 +14,8 @@ import javax.persistence.*;
 public class RpgClass {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "class_generator")
     @SequenceGenerator(name="class_generator", sequenceName = "class_id_seq", schema = "rpggremlins")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "class_generator")
     @Column(name="id", unique=true, nullable=false)
     private Long id;
     private String name;

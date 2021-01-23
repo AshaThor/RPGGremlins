@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <title th:text="${race.getName()}"></title>
 </head>
-<body>
+<body class="PHB">
 <div th:replace="header ::header"></div>
-<main role="main" class="py-5 flex-fill">
+<main role="main" class="py-5 flex-fill bg-dark text-white">
     <h1 th:text="${race.getName()}"></h1>
     <!--<h5 th:text="|Hit dice: ${race.getHitDice()}|"></h5>-->
     <p  th:text="${race.getLore()}" > </p>

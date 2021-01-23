@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <title th:text="${skill.getName()}"></title>
 </head>
-<body>
+<body class="PHB">
 <div th:replace="header ::header"></div>
-<main role="main" class="py-5 flex-fill">
+<main role="main" class="py-5 flex-fill bg-dark text-white"  >
     <h1 th:text="${skill.getName()}"></h1>
-    <h5 th:text="|Index: ${skill.getIndex()}|"></h5>
+    <h5 th:text="|Index: ${skill.getId()}|"></h5>
 </main>
 </body>
 <meta name="viewport" content="width=device-width, initial-scale=1">
