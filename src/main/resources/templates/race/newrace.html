@@ -8,7 +8,7 @@
 <div th:replace="header ::header"></div>
 <main class="flex-fill" role="main">
     <div class="container-md">
-        <form action="#" method="post" th:action="@{/race/new}" th:object="${race}">
+        <form action="#" method="post" th:action="@{/races/new}" th:object="${race}">
             <div class="form-group">
                 <label for="inputName">Name</label>
                 <input aria-describedby="inputHelp" class="form-control" id="inputName" placeholder="Enter Race Name"
@@ -16,13 +16,48 @@
             </div>
             <div class="form-group">
                 <label for="lore">Lore</label>
-                <textarea class="form-control" aria-label=".form-select-sm example" id="lore" name="loretextarea" rows="4" th:field="*{lore}"
-                          placeholder="Enter your classes lore here" >
+                <textarea class="form-control" aria-label=".form-select-sm example" id="lore" name="loretextarea"
+                          rows="4" th:field="*{lore}"
+                          placeholder="Enter your races lore here">
                 </textarea>
             </div>
             <div class="form-group">
                 <label for="inputSpeed">Speed</label>
-                <input class="form-control" id="inputSpeed" value="30"  type="number" step="5" min="0" th:field="*{speed}">
+                <input class="form-control" id="inputSpeed" value="30" type="number" step="5" min="0"
+                       th:field="*{speed}">
+            </div>
+            <div class="form-group">
+                <label for="age">Age Desc</label>
+                <textarea class="form-control" aria-label=".form-select-sm example" id="age" name="agetextarea" rows="4"
+                          th:field="*{age}"
+                          placeholder="Enter your age description here">
+                </textarea>
+            </div>
+            <div class="form-group">
+                <label for="alignment">Alignment</label>
+                <textarea class="form-control" aria-label=".form-select-sm example" id="alignment" name="loretextarea"
+                          rows="4" th:field="*{alignment}"
+                          placeholder="Enter your age description here">
+                </textarea>
+            </div>
+            <div class="form-group">
+                <label for="size">Size</label>
+                <textarea class="form-control" aria-label=".form-select-sm example" id="size" name="sizetextarea"
+                          rows="4" th:field="*{sizeText}"
+                          placeholder="Enter your age description here">
+                </textarea>
+            </div>
+            <div class="form-group">
+                <label for="SkillsLimitSelect">Size</label>
+                <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="SkillsLimitSelect"
+                        th:field="*{size}">
+                    <option th:value="${'Tiny'}" value="Tiny">Tiny</option>
+                    <option th:value="${'Small'}" value="Small">Small</option>
+                    <option th:value="${'Medium'}" value="Medium">Medium</option>
+                    <option th:value="${'Large'}" value="Large">Large</option>
+                    <option th:value="${'Huge'}" value="Huge">Huge</option>
+                    <option th:value="${'Gargantuan'}" value="Gargantuan">Gargantuan</option>
+                </select>
             </div>
             <button class="btn btn-primary" type="submit">Submit</button>
         </form>
@@ -30,7 +65,10 @@
 </main>
 </body>
 <meta content="width=device-width, initial-scale=1" name="viewport">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
 <link rel="stylesheet" th:href="@{/css/style.css}">
 </html>

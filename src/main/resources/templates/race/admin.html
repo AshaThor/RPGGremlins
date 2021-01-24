@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Classes Admin</title>
+</head>
+<body>
+<div th:replace="header ::header"></div>
+<main class="flex-fill" role="main">
+    <div class="container-md">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Hit Dice</th>
+                <th scope="col">Charcter Skills Limit</th>
+                <th scope="col">Lore</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="rpgclass : ${rpgClassesList}">
+                <th scope="row" th:text="${rpgclass.getId()}"></th>-
+                <td th:text="${rpgclass.getName()}"></td>
+                <td th:text="${rpgclass.getHitDice()}"></td>
+                <td th:text="${rpgclass.getCharacterSkillsLimit()}"></td>
+                <td th:text="${rpgclass.getLore()}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</main>
+</body>
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</html>
