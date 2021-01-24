@@ -7,9 +7,13 @@
 <body class="PHB">
 <div th:replace="header ::header"></div>
 <main role="main" class="py-5 flex-fill bg-dark text-white">
-    <h1 th:text="${race.getName()}"></h1>
-    <!--<h5 th:text="|Hit dice: ${race.getHitDice()}|"></h5>-->
-    <p  th:text="${race.getLore()}" > </p>
+    <h1 th:text="'Name: ' + ${race.name}"></h1>
+    <p th:text="'Lore: ' + ${race.lore}"></p>
+    <p th:text="'Age Description: ' + ${race.age}"></p>
+    <p th:text="'Alignment Description: ' + ${race.alignment}"></p>
+    <p th:text="'Size: ' + ${race.size}"></p>
+    <p th:text="'Size Description: ' + ${race.sizeText}"></p>
+    <p th:text="'Speed: ' + ${race.speed}"></p>
 </main>
 </body>
 <meta name="viewport" content="width=device-width, initial-scale=1">
