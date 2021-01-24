@@ -13,18 +13,24 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Name</th>
-                <th scope="col">Hit Dice</th>
-                <th scope="col">Charcter Skills Limit</th>
                 <th scope="col">Lore</th>
+                <th scope="col">Age Desc</th>
+                <th scope="col">Alignment Desc</th>
+                <th scope="col">Size Desc</th>
+                <th scope="col">Size</th>
+                <th scope="col">Speed</th>
             </tr>
             </thead>
             <tbody>
-            <tr th:each="rpgclass : ${rpgClassesList}">
-                <th scope="row" th:text="${rpgclass.getId()}"></th>-
-                <td th:text="${rpgclass.getName()}"></td>
-                <td th:text="${rpgclass.getHitDice()}"></td>
-                <td th:text="${rpgclass.getCharacterSkillsLimit()}"></td>
-                <td th:text="${rpgclass.getLore()}"></td>
+            <tr th:each="race : ${racesList}">
+                <th scope="row" th:text="${race.getId()}"></th>-
+                <td th:text="${race.getName()}"></td>
+                <td th:text="${race.getLore()}"></td>
+                <td th:text="${race.getAge()}"></td>
+                <td th:text="${race.getAlignment()}"></td>
+                <td th:text="${race.getSizeText()}"></td>
+                <td th:text="${race.getSize()}"></td>
+                <td th:text="${race.getSpeed()}"></td>
             </tr>
             </tbody>
         </table>

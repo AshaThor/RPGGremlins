@@ -1,7 +1,6 @@
 package com.ashathor.rpggremlins.controllers.race;
 
 import com.ashathor.rpggremlins.models.Race;
-import com.ashathor.rpggremlins.models.RpgClass;
 import com.ashathor.rpggremlins.repositories.RaceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,15 +27,17 @@ public class RaceController {
     private RaceSpeedList raceSpeedList;
 
     @GetMapping
-    public String listRaces(ModelMap modelMap){
+    public String listRaces(ModelMap modelMap) {
         List<Race> raceList = raceRepository.findAll();
         List<Race> raceListSorted = raceList.stream().sorted(Comparator.comparing(Race::getName)).collect(Collectors.toList());
         modelMap.put("raceList", raceListSorted);
-        return "race/races"; }
+        return "race/races";
+    }
 
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
-    public void create(@RequestBody Race race){ raceRepository.save(race);
+    public void create(@RequestBody Race race) {
+        raceRepository.save(race);
     }
 
     @GetMapping("/{id}")
@@ -55,6 +56,7 @@ public class RaceController {
     public List<Race> getListOfRacesBySpeed(@PathVariable("speed") Long speed) {
         return raceSpeedList.getSpeedList(speed);
     }
+
     @GetMapping("/new")
     public String newRaceForm(Model model) {
         model.addAttribute("race", new Race());
@@ -68,4 +70,12 @@ public class RaceController {
         raceRepository.save(race);
         return "race/newsuccess";
     }
+
+    @GetMapping("/admin")
+    public String raceAdmin(ModelMap modelMap) {
+        List<Race> racesList = raceRepository.findAll();
+        List<Race> racesListSorted = racesList.stream().sorted(Comparator.comparing(Race::getName)).collect(Collectors.toList());
+        modelMap.put("racesList", racesListSorted);
+        return "race/admin";
     }
+}
