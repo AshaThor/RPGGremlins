@@ -119,53 +119,53 @@ CREATE TABLE rpggremlins.class_skills
 
 
 ALTER TABLE rpggremlins.saving_throw
-    ADD FOREIGN KEY (character_id) REFERENCES character (id);
+    ADD FOREIGN KEY (character_id) REFERENCES rpggremlins.character (id);
 
 ALTER TABLE rpggremlins.character_abilities
-    ADD FOREIGN KEY (character_id) REFERENCES character (id);
+    ADD FOREIGN KEY (character_id) REFERENCES rpggremlins.character (id);
 
 ALTER TABLE rpggremlins.character_skills
-    ADD FOREIGN KEY (character_id) REFERENCES character (id);
+    ADD FOREIGN KEY (character_id) REFERENCES rpggremlins.character (id);
 
 ALTER TABLE rpggremlins.character_campaigns
-    ADD FOREIGN KEY (character_id) REFERENCES character (id);
+    ADD FOREIGN KEY (character_id) REFERENCES rpggremlins.character (id);
 
 ALTER TABLE rpggremlins.character
-    ADD FOREIGN KEY (username) REFERENCES users (username);
+    ADD FOREIGN KEY (username) REFERENCES rpggremlins.users (username);
 
 ALTER TABLE rpggremlins.character_campaigns
-    ADD FOREIGN KEY (campaign_name) REFERENCES campaign (name);
+    ADD FOREIGN KEY (campaign_name) REFERENCES rpggremlins.campaign (name);
 
 ALTER TABLE rpggremlins.saving_throw
-    ADD FOREIGN KEY (ability_id) REFERENCES ability (id);
+    ADD FOREIGN KEY (ability_id) REFERENCES rpggremlins.ability (id);
 
 ALTER TABLE rpggremlins.character_abilities
-    ADD FOREIGN KEY (ability_id) REFERENCES ability (id);
+    ADD FOREIGN KEY (ability_id) REFERENCES rpggremlins.ability (id);
 
 ALTER TABLE rpggremlins.skill
-    ADD FOREIGN KEY (ability_id) REFERENCES ability (id);
+    ADD FOREIGN KEY (ability_id) REFERENCES rpggremlins.ability (id);
 
 ALTER TABLE rpggremlins.character_skills
-    ADD FOREIGN KEY (skill_id) REFERENCES skill (id);
+    ADD FOREIGN KEY (skill_id) REFERENCES rpggremlins.skill (id);
 
 ALTER TABLE rpggremlins.character
-    ADD FOREIGN KEY (class_id) REFERENCES class (id);
+    ADD FOREIGN KEY (class_id) REFERENCES rpggremlins.class (id);
 
 ALTER TABLE rpggremlins.class_skills
-    ADD FOREIGN KEY (class_id) REFERENCES class (id);
+    ADD FOREIGN KEY (class_id) REFERENCES rpggremlins.class (id);
 
 ALTER TABLE rpggremlins.class_skills
-    ADD FOREIGN KEY (skill_id) REFERENCES skill (id);
+    ADD FOREIGN KEY (skill_id) REFERENCES rpggremlins.skill (id);
 
 ALTER TABLE rpggremlins.character
-    ADD FOREIGN KEY (race_id) REFERENCES race (id);
+    ADD FOREIGN KEY (race_id) REFERENCES rpggremlins.race (id);
 
 ALTER TABLE rpggremlins.race_abilities
-    ADD FOREIGN KEY (ability_id) REFERENCES ability (id);
+    ADD FOREIGN KEY (ability_id) REFERENCES rpggremlins.ability (id);
 
 ALTER TABLE rpggremlins.race_abilities
-    ADD FOREIGN KEY (race_id) REFERENCES race (id);
+    ADD FOREIGN KEY (race_id) REFERENCES rpggremlins.race (id);
 
 ALTER TABLE rpggremlins.character
-    ADD FOREIGN KEY (alignment_id) REFERENCES alignment (id);
+    ADD FOREIGN KEY (alignment_id) REFERENCES rpggremlins.alignment (id);
 
