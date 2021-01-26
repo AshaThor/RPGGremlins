@@ -5,6 +5,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Getter
@@ -14,17 +15,20 @@ import java.util.Date;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Blog {
 
+    private static final Integer HOOK_LENGTH = 140;
+
     @Id
-    //@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "race_generator")
-    //@SequenceGenerator(name="race_generator", sequenceName = "race_id_seq", schema = "rpggremlins")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "blog_generator")
+    @SequenceGenerator(name="blog_generator", sequenceName = "blog_id_seq", schema = "rpggremlins")
     @Column(name="id", unique=true, nullable=false)
     private Long id;
     private String title;
-    private String img;
+    private String imgLink;
     private String hook;
     private String body;
     private String author;
-    private Date date_created;
+    @Column(name="date")
+    private LocalDateTime dateCreated;
     private Integer likes;
 
 

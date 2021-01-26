@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${blog.title}"></title>
+</head>
+<body class="PHB">
+<div th:replace="header ::header"></div>
+<main role="main" class="py-5 flex-fill bg-dark text-white">
+    <h1 th:text="${blog.title}"></h1>
+    <h2 th:text="${blog.hook}"></h2>
+    <img th:attr="src=@{blog.imgLink}"/>
+    <p th:text="${blog.body}"></p>
+    <h4 th:text="'Author: ' + ${blog.author}"></h4>
+    <p th:text="'Date Created: ' + ${blog.date}"></p>
+    <button type="button" class="btn btn-outline-danger" action="#" method="post" th:action="@{/blog/like}" th:object="${blog.id}">Like ❤</button>
+    <button type="button" class="btn btn-outline-warning" disabled th:text="'Likes: ' + ${blog.likes}"></button>
+
+</main>
+</body>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</html>
