@@ -1,9 +1,6 @@
 package com.ashathor.rpggremlins.controllers;
 
-import com.ashathor.rpggremlins.models.RpgClass;
 import com.ashathor.rpggremlins.models.Skill;
-import com.ashathor.rpggremlins.models.Skill;
-import com.ashathor.rpggremlins.repositories.AbilityRepository;
 import com.ashathor.rpggremlins.repositories.SkillRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

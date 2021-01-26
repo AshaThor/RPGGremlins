@@ -2,7 +2,6 @@ package com.ashathor.rpggremlins.controllers;
 
 import com.ashathor.rpggremlins.models.Blog;
 import com.ashathor.rpggremlins.repositories.BlogRepository;
-import com.ashathor.rpggremlins.repositories.BlogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -11,10 +10,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
-import java.util.Comparator;
-import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/blog")

@@ -5,7 +5,6 @@ import org.springframework.boot.json.JsonParserFactory;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 public class JsonParcer {

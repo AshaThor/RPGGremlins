@@ -2,7 +2,6 @@ package com.ashathor.rpggremlins.controllers;
 
 import com.ashathor.rpggremlins.models.Ability;
 import com.ashathor.rpggremlins.repositories.AbilityRepository;
-import com.ashathor.rpggremlins.repositories.BlogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,7 +1,6 @@
 package com.ashathor.rpggremlins.controllers;
 
 import com.ashathor.rpggremlins.models.Character;
-import com.ashathor.rpggremlins.repositories.BlogRepository;
 import com.ashathor.rpggremlins.repositories.CharacterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
