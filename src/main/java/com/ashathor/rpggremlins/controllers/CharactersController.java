@@ -1,6 +1,7 @@
 package com.ashathor.rpggremlins.controllers;
 
 import com.ashathor.rpggremlins.models.Character;
+import com.ashathor.rpggremlins.repositories.BlogRepository;
 import com.ashathor.rpggremlins.repositories.CharacterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,8 +13,12 @@ import java.util.List;
 @RequestMapping("/api/v1/characters")
 public class CharactersController {
 
+    private final CharacterRepository characterRepository;
+
     @Autowired
-    private CharacterRepository characterRepository;
+    public CharactersController(CharacterRepository characterRepository) {
+        this.characterRepository = characterRepository;
+    }
 
     @GetMapping
     public List<Character> list(){

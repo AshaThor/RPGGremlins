@@ -14,8 +14,8 @@ import javax.persistence.*;
 public class Race {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "race_generator")
-    @SequenceGenerator(name="race_generator", sequenceName = "race_id_seq", schema = "rpggremlins")
+    @SequenceGenerator(name="race_id_seq", sequenceName = "race_id_seq", schema = "rpggremlins")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "race_id_seq")
     @Column(name="id", unique=true, nullable=false)
     private Long id;
     private String name;

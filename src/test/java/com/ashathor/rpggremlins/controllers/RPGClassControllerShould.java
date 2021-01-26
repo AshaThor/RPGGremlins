@@ -30,7 +30,7 @@ public class RPGClassControllerShould {
     @Test
     public void returnClassesListLink() {
         ModelMap modelMap = new ModelMap();
-        assertEquals("Root returned successfully","rpgclass/rpgclasses",rpgClassController.listClasses(modelMap));
+        assertEquals("Root did not return correctly","rpgclass/rpgclasses",rpgClassController.listClasses(modelMap));
         log.info("Return Classes List Link Success");
     }
 

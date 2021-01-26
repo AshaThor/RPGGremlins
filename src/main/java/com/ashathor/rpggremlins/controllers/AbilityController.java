@@ -2,6 +2,7 @@ package com.ashathor.rpggremlins.controllers;
 
 import com.ashathor.rpggremlins.models.Ability;
 import com.ashathor.rpggremlins.repositories.AbilityRepository;
+import com.ashathor.rpggremlins.repositories.BlogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,10 +10,14 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/abilities")
-public class AbilitiesController {
+public class AbilityController {
+
+    private final AbilityRepository abilityRepository;
 
     @Autowired
-    private AbilityRepository abilityRepository;
+    public AbilityController(AbilityRepository abilityRepository) {
+        this.abilityRepository = abilityRepository;
+    }
 
     @GetMapping
     public List<Ability> listAll(){

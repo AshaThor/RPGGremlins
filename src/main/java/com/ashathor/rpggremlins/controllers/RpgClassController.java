@@ -11,15 +11,16 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Comparator;
 import java.util.List;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping("/rpgclasses")
 public class RpgClassController {
 
-    @Autowired
     private RpgClassRepository rpgClassRepository;
 
+    @Autowired
     public List<RpgClass> list() {
         return rpgClassRepository.findAll();
     }
