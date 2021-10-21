@@ -1,12 +1,8 @@
 package com.ashathor.rpggremlins.controllers.alignment;
 
-import com.ashathor.rpggremlins.models.Alignment;
-import com.ashathor.rpggremlins.repositories.AlignmentRepository;
+import com.ashathor.rpggremlins.repositories.remote.AlignmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Component
 public class AlignmentSubList {

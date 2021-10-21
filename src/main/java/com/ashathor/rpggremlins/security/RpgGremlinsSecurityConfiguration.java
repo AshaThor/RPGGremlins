@@ -1,3 +1,4 @@
+/*
 package com.ashathor.rpggremlins.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,3 +49,4 @@ public class RpgGremlinsSecurityConfiguration extends WebSecurityConfigurerAdapt
         return new BCryptPasswordEncoder();
     }
 }
+*/

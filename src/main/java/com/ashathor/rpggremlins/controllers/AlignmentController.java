@@ -1,7 +1,8 @@
-package com.ashathor.rpggremlins.controllers.alignment;
+package com.ashathor.rpggremlins.controllers;
 
+import com.ashathor.rpggremlins.controllers.alignment.AlignmentSubList;
 import com.ashathor.rpggremlins.models.Alignment;
-import com.ashathor.rpggremlins.repositories.AlignmentRepository;
+import com.ashathor.rpggremlins.repositories.remote.AlignmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

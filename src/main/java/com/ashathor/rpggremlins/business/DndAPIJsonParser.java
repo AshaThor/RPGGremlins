@@ -29,13 +29,10 @@ public class DndAPIJsonParser {
                         for (Map.Entry<String, Object> entry2 : map2.entrySet()) {
                             log.info(entry2.getKey() + " = " + entry2.getValue());
                         }
-
                     }
                 }
             }
-
         }
         return "yes";
-
     }
 }

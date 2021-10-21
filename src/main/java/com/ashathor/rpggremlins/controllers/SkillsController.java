@@ -1,7 +1,7 @@
 package com.ashathor.rpggremlins.controllers;
 
 import com.ashathor.rpggremlins.models.Skill;
-import com.ashathor.rpggremlins.repositories.SkillRepository;
+import com.ashathor.rpggremlins.repositories.remote.SkillRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -38,7 +38,7 @@ public class SkillsController {
      * E.g. /ability/str
      * returns a list of skills that are of the strength ability
      * {Athletics}
-     * @param index
+     * @param
      * @return List<Skill>
      * *//*
     *//*@GetMapping("/ability/{index}")

@@ -1,7 +1,7 @@
 package com.ashathor.rpggremlins.controllers;
 
 import com.ashathor.rpggremlins.models.RpgClass;
-import com.ashathor.rpggremlins.repositories.RpgClassRepository;
+import com.ashathor.rpggremlins.repositories.remote.RpgClassRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
@@ -14,38 +14,37 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Controller
-@RequestMapping("/rpgclasses")
+@RequestMapping("/api/v1/rpgclasses")
 public class RpgClassController {
 
     private RpgClassRepository rpgClassRepository;
 
+    /** Constructor */
     @Autowired
-    public List<RpgClass> list() {
-        return rpgClassRepository.findAll();
-    }
-
     public RpgClassController(RpgClassRepository rpgClassRepository) {
         this.rpgClassRepository = rpgClassRepository;
     }
 
-    //Root
+    /** Root mapping
+     * Returns an ordered list of RPGClasses in JSON from the database
+     * @return List<RPGClass>*/
     @GetMapping
-    public String listClasses(ModelMap modelMap) {
+    public List<RpgClass> listClasses() {
         List<RpgClass> rpgClassesList = rpgClassRepository.findAll();
-        List<RpgClass> rpgClassesListSorted = rpgClassesList.stream().sorted(Comparator.comparing(RpgClass::getName)).collect(Collectors.toList());
-        modelMap.put("rpgClassesList", rpgClassesListSorted);
-        return "rpgclass/rpgclasses";
+        return rpgClassesList.stream().sorted(Comparator.comparing(RpgClass::getName)).collect(Collectors.toList());
     }
 
-
+    /** /{id} Mapping
+     * This endpoint takes an id and returns json of the given class
+     * @param id long Idof RPGClass
+     * @return one RPGClass*/
     @GetMapping("/{id}")
-    public String getById(@PathVariable("id") long id, ModelMap modelMap) {
-        RpgClass rpgClass = rpgClassRepository.getOne(id);
-        modelMap.put("rpgClass", rpgClass);
-        return "rpgclass/rpgclass";
+    public RpgClass getById(@PathVariable("id") long id) {
+        return rpgClassRepository.getOne(id);
     }
 
     //try to get param name working
+    @GetMapping("/name")
     public RpgClass getClass(@RequestParam(value = "name") String name) {
         return rpgClassRepository.findByName(name);
     }

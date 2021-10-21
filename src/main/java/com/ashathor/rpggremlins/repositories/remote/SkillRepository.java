@@ -1,4 +1,4 @@
-package com.ashathor.rpggremlins.repositories;
+package com.ashathor.rpggremlins.repositories.remote;
 
 import com.ashathor.rpggremlins.models.Skill;
 import org.springframework.data.jpa.repository.JpaRepository;

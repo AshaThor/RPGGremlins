@@ -20,7 +20,7 @@ public class Race {
     private Long id;
     private String name;
     private String lore;
-    private String age;
+    //private String age;
     private String alignment;
     @Column(name="size_text")
     private String sizeText;

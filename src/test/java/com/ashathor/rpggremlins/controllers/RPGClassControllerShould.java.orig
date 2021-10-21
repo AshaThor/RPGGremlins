@@ -13,7 +13,7 @@ import static org.junit.Assert.assertNotNull;
 
 
 @SpringBootTest
-public class RPGClassControllerShould {
+class RPGClassControllerShould {
 
     private static final Logger log = Logger.getLogger(RPGClassControllerShould.class.getName());
 
@@ -22,27 +22,37 @@ public class RPGClassControllerShould {
 
 
     @Test
-    public void bePresent() {
+    void bePresent() {
         log.info("Test 1: ");
         assertNotNull("test ",rpgClassController);
     }
 
-    /*@Test
+<<<<<<< Updated upstream
+    @Test
+    void returnClassesListLink() {
+=======
+   /* @Test
     public void returnClassesListLink() {
+>>>>>>> Stashed changes
         ModelMap modelMap = new ModelMap();
         assertEquals("Root did not return correctly","rpgclass/rpgclasses",rpgClassController.listClasses(modelMap));
         log.info("Return Classes List Link Success");
     }*/
 
-  /*  @Test
+<<<<<<< Updated upstream
+    @Test
+    void returnIndividualClassLink() {
+=======
+   /* @Test
     public void returnIndividualClassLink() {
+>>>>>>> Stashed changes
         ModelMap modelMap = new ModelMap();
         assertEquals("Root returned successfully","rpgclass/rpgclass",rpgClassController.getById(1, modelMap));
         log.info("Return Individual Class Link Success");
     }*/
 
     @Test
-    public void returnAdminLink() {
+    void returnAdminLink() {
         ModelMap modelMap = new ModelMap();
         assertEquals("Root returned successfully","rpgclass/admin",rpgClassController.rpgClassAdmin(modelMap));
         log.info("Return Class Admin Link Success");
